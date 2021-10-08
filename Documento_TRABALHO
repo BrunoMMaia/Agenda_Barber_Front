@@ -1,0 +1,169 @@
+---
+Comando linux:
+
+ -> Versão postgres
+ 	pg_config --version
+ 	
+ -> Desistalar o banco
+ 	sudo apt-get --purge remove postgresql-12 postgresql-13 postgresql-client-12 postgresql-client-13 postgresql-client-common postgresql-common	
+
+
+
+-> Instalar o postgres
+	sudo apt install postgresql-10
+
+-> Ajustar nome 
+	sudo su - postgres
+	psql -d postgres -U postgres
+	alter user postgres with password '2975';
+
+
+
+=============================
+
+acesso exemplo ADM
+bruno@devbox.net.br
+	2975
+
+Acesso consultor
+email: thiago.bispo@securitybox.com.br
+password": dnasec4321!
+
+
+acesso exemplo cliente: 
+  teste@boxgroup.net.br
+  1234
+
+
+acesso_parceiro@boxgroup.net.bt
+123
+
+============== Anotações ==============
+boxgroup@818929
+george@boxgroup.net.br
+https://dnasec-front-dev.azurewebsites.net/
+
+
+->
+Rodar front e back
+
+yarn start:dev
+npx react-scripts start
+
+=====
+Itens:
+			
+==============  Comando do migration --- *******************
+--Criar novo arquivo migration
+yarn typeorm migration:create -n AddColumsProjectQuestions -c db-postgres
+
+
+yarn typeorm migration:create -n AddColumsProjectQuestionsAssessment -c db-postgres
+
+
+-- Executar 
+yarn typeorm migration:run -c db-postgres
+
+-- Reverter o ultimo migration
+yarn typeorm migration:revert -c db-postgres
+  
+==========
+
+ {"id": "9b5b01a9-9b4e-4e05-9d6c-d7b6cbd5cc8b",
+ "name": "Tecnologia - Segurança de Informação"}
+ 
+ {"id": "137165b8-67e0-49ba-a916-d39bf58a89a4",
+ "name": "Tecnologia - Datacenter e Servidores"}
+ 
+ {"id": "ce1c7c55-cf38-4f97-b5a3-615f46038127",
+ "name": "Tecnologia - Redes e Conectividade"}
+  
+
+ {"id": "9c36b95d-eff4-4c21-a02e-8e1d1cc74aed",
+ "name": "Tecnologia - Desenvolvimento de Software"}
+ 
+  {"id": "5907e5c5-a220-455a-92d8-56bbf3df46c1",
+ "name": "Tecnologia - Monitoramento"}
+ 
+ {"id": "9eb939e3-bcb2-4513-bd58-5bbebd82eacf",
+ "name": "Governança de Tecnologia"}
+ 
+ {"id": "d15f44ec-f4f3-4d30-a3aa-40414af52492",
+ "name": "Governança de Segurança de Informação"}
+ 
+ {"id": "72f80aba-26cf-4b83-8f65-70a6c465bf6b",
+ "name": "Governança de Sistemas"}
+ 
+ {"id": "4cceac6e-5576-4a56-9c03-0be4bbfe613c",
+ "name": "Governança de Continuidade de negócios"}
+
+ {"id": "5fef6d5a-1529-4c08-b46d-a06356b591b8",
+ "name": "Jurídico"}
+      
+ {"id": "ebf65911-276f-4ea6-9362-e9349dfdff68",
+ "name": "Observância"}
+ 
+ {"id": "85c6a5df-3471-4cfd-8958-ee357cb05690",
+ "name": "Negócios"}
+  
+
+
+
+=======================================================================================================================================================
+Item modulo acesso = cliente: nome: DNA - assessment
+
+  - Adicionar um novo modulo com a imagem igual do segundo modulo mas
+  para Recomendação.
+ 
+  a tela inicial vai ser igual a que já existe hoje para o DPIA.
+ 
+  No botão onde hoje esta Novo Plano de ação criar uma nova tela, tendo como
+Exemplo /home/dpia
+       (Botão)-> Novo plano de ação
+
+Diferença para a nova tela:
+No lugar de      Diretoria               = Modulo
+    Departamento      = Categoria
+    Processo              = Letra da pergunta + Pergunta
+    Risco Identificado  = Argumento coletado
+    Impacto                  = vai manter
+                         Probabilidade        = Prioridade
+               Risco                     = Matriz Regra de graduação de risco (https://docs.google.com/spreadsheets/d/1D_kNE3Tzvywx9EjoanqE-_LCJJsBUA-a2YVrD9C3pVQ/edit#gid=0)
+                      Resposta ao risco    = Manter o mesmo valor
+                      Tipo de parecer        = Tipo de recomendação -> Adicionar as opções (Tipo de Parecer
+Tecnologia - Segurança de Informação
+Tecnologia - Datacenter e Servidores
+Tecnologia - Redes e Conectividade
+Tecnologia - Desenvolvimento de Software
+Tecnologia - Monitoramento
+Governança de Tecnologia
+Governança de Segurança de Informação
+Governança de Sistemas
+Governança de Continuidade de negócios
+Jurídico
+Observância
+Negócios)
+                       Parecer                    = crítica/motivação
+                       Plano de ação          = recomendação
+
+                       Data = Pegar a data da criação do parecer (BD: tabela> project_questions > campo 'updated_at') +                           (Prazo recomendado (Meses) * 30)
+
+O objetivo é que o cliente, por exemplo o Condor, possa ver em tempo real o que está sendo sugerido de fazer para melhorias na empresa;
+Ao invés de ficar mandando email pra empresa as recomendações/pareceres vão se vistas pelo sistema;
+
+CLiente abrir a tela, no grid ter uma data inserida pelo cliente;
+O cliente só visualiza, já existe essa tabela no banco?
+Tem algum lugar que terá que criar?
+
+
+
+ 
+
+
+
+
+
+
+
+
+
